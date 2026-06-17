@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
 
 :root {
-  --green: #76654C;
-  --green-dark: #5e4f3c;
+  --green: #A6947D;
+  --green-dark: #8a7a68;
   --rust: #863725;
   --gold: #CF8A56;
   --gold-dark: #b87a46;
   --cream: #FAF7F2;
-  --stone: #E7C4A5;
-  --sky: #A6947D;
-  --charcoal: #6D4C34;
-  --mist: #F2ECE4;
+  --stone: #EDE0D0;
+  --sky: #C3C2BC;
+  --charcoal: #5C3D2A;
+  --mist: #F5EEE6;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,7 +51,7 @@ h1, h2, h3, h4 {
   margin-bottom: 1rem;
 }
 
-.section-title--white { color: #fff; }
+.section-title--white { color: var(--charcoal); }
 
 .section-lead {
   font-size: 15px;
@@ -279,8 +279,8 @@ h1, h2, h3, h4 {
 .container { max-width: 1100px; margin: 0 auto; }
 .container-narrow { max-width: 760px; margin: 0 auto; }
 .section-mist { background: var(--mist); }
-.section-green { background: var(--green); }
-.section-rust { background: var(--rust); }
+.section-green { background: var(--stone); }
+.section-rust { background: var(--charcoal); }
 .section-charcoal { background: var(--charcoal); }
 .section-stone { background: var(--stone); }
 
