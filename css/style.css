@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
 
 :root {
-  --green: #2D5A27;
-  --green-dark: #1e3d1b;
-  --rust: #A05C2C;
-  --gold: #C8943A;
-  --gold-dark: #a87a2e;
-  --cream: #F5F0E8;
-  --stone: #E8E0D0;
-  --sky: #7A9BB5;
-  --charcoal: #2C2420;
-  --mist: #F0EDE6;
+  --green: #76654C;
+  --green-dark: #5e4f3c;
+  --rust: #863725;
+  --gold: #CF8A56;
+  --gold-dark: #b87a46;
+  --cream: #FAF7F2;
+  --stone: #E7C4A5;
+  --sky: #A6947D;
+  --charcoal: #6D4C34;
+  --mist: #F2ECE4;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
