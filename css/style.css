@@ -280,7 +280,7 @@ h1, h2, h3, h4 {
 .container-narrow { max-width: 760px; margin: 0 auto; }
 .section-mist { background: var(--mist); }
 .section-green { background: var(--stone); }
-.section-rust { background: var(--charcoal); }
+.section-rust { background: var(--rust); }
 .section-charcoal { background: var(--charcoal); }
 .section-stone { background: var(--stone); }
 
