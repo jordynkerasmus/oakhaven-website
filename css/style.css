@@ -280,7 +280,7 @@ h1, h2, h3, h4 {
 .container-narrow { max-width: 760px; margin: 0 auto; }
 .section-mist { background: var(--mist); }
 .section-green { background: var(--stone); }
-.section-rust { background: var(--green); }
+.section-rust { background: var(--sky); }
 .section-charcoal { background: var(--charcoal); }
 .section-stone { background: var(--stone); }
 
@@ -657,12 +657,13 @@ h1, h2, h3, h4 {
 }
 .cta-band h2 {
   font-size: clamp(30px, 4vw, 50px);
-  color: #fff;
+  color: var(--charcoal);
   margin-bottom: 1rem;
 }
 .cta-band p {
   font-size: 15px;
-  color: rgba(255,255,255,0.72);
+  color: var(--charcoal);
+  opacity: 0.75;
   max-width: 480px;
   margin: 0 auto 2.5rem;
   line-height: 1.75;
@@ -670,7 +671,7 @@ h1, h2, h3, h4 {
 
 /* ── FOOTER ── */
 .footer {
-  background: var(--green);
+  background: var(--charcoal);
   padding: 4.5rem 2.5rem 2.5rem;
 }
 .footer-grid {
