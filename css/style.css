@@ -43,6 +43,9 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--gold);
+  width: fit-content;
 }
 
 .section-title {
@@ -98,8 +101,8 @@ h1, h2, h3, h4 {
   transition: background 0.35s ease, box-shadow 0.35s ease;
 }
 .nav.scrolled {
-  background: var(--green);
-  box-shadow: 0 2px 24px rgba(0,0,0,0.18);
+  background: #2A1F17;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.28);
 }
 .nav-logo {
   font-family: 'Cormorant Garant', serif;
@@ -196,7 +199,7 @@ h1, h2, h3, h4 {
   margin-bottom: 1.25rem;
 }
 .hero h1 {
-  font-size: clamp(50px, 7.5vw, 88px);
+  font-size: clamp(60px, 9vw, 110px);
   color: #fff;
   font-weight: 300;
   letter-spacing: 0.02em;
@@ -280,7 +283,7 @@ h1, h2, h3, h4 {
 .container-narrow { max-width: 760px; margin: 0 auto; }
 .section-mist { background: var(--mist); }
 .section-green { background: var(--stone); }
-.section-rust { background: var(--green); }
+.section-rust { background: var(--rust); }
 .section-charcoal { background: var(--charcoal); }
 .section-stone { background: var(--stone); }
 
@@ -297,6 +300,23 @@ h1, h2, h3, h4 {
   text-align: center;
   padding: 4.5rem 2.5rem;
   border-bottom: 1px solid var(--stone);
+  position: relative;
+  overflow: hidden;
+}
+.intro-quote::before {
+  content: '\201C';
+  font-family: 'Cormorant Garant', serif;
+  font-size: 220px;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.12;
+  position: absolute;
+  top: -0.2em;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
 }
 .intro-quote blockquote {
   font-family: 'Cormorant Garant', serif;
@@ -308,6 +328,8 @@ h1, h2, h3, h4 {
   max-width: 620px;
   margin: 0 auto 1.25rem;
   quotes: none;
+  position: relative;
+  z-index: 1;
 }
 .intro-attr {
   font-size: 11px;
@@ -657,13 +679,13 @@ h1, h2, h3, h4 {
 }
 .cta-band h2 {
   font-size: clamp(30px, 4vw, 50px);
-  color: var(--charcoal);
+  color: #fff;
   margin-bottom: 1rem;
 }
 .cta-band p {
   font-size: 15px;
-  color: var(--charcoal);
-  opacity: 0.75;
+  color: #fff;
+  opacity: 0.8;
   max-width: 480px;
   margin: 0 auto 2.5rem;
   line-height: 1.75;
@@ -716,7 +738,7 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   align-items: center;
 }
-.footer-copy { font-size: 11px; color: rgba(255,255,255,0.22); }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.42); }
 
 /* ── GALLERY STRIP (home) ── */
 .gallery-strip-grid {
