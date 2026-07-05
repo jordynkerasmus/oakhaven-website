@@ -881,7 +881,7 @@ h1, h2, h3, h4 {
   .acts-grid { grid-template-columns: 1fr; }
   .amenities-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .gallery-masonry { columns: 1; }
+  .gallery-masonry { columns: 2; }
   .hero-btns { flex-direction: column; align-items: center; }
   .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
   .gallery-strip-grid { grid-template-columns: 1fr; }
