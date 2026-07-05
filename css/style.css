@@ -878,7 +878,6 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 560px) {
-  .act-icon { display: none; }
   .acts-grid { grid-template-columns: 1fr; }
   .amenities-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
