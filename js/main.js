@@ -49,3 +49,19 @@ lightbox?.addEventListener('click', e => {
 });
 document.querySelector('.lightbox-close')?.addEventListener('click', closeLightbox);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// FAQ accordion
+document.querySelector('.faq-list')?.addEventListener('click', function(e) {
+  const trigger = e.target.closest('.faq-trigger');
+  if (!trigger) return;
+  const item = trigger.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => {
+    el.classList.remove('open');
+    el.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    trigger.setAttribute('aria-expanded', 'true');
+  }
+});
