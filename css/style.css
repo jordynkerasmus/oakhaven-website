@@ -973,6 +973,19 @@ h1, h2, h3, h4 {
 .managed-by img {
   width: 150px;
   margin-bottom: 0.6rem;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.45));
+}
+.managed-by a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+.managed-by a:hover {
+  color: rgba(255,255,255,0.75);
+}
+.managed-by--light a:hover {
+  color: var(--gold-dark);
 }
 .managed-by span {
   display: block;
