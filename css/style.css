@@ -965,3 +965,29 @@ h1, h2, h3, h4 {
   color: var(--charcoal);
   font-weight: 500;
 }
+
+/* ── MANAGED BY ── */
+.managed-by {
+  margin-top: 1.5rem;
+}
+.managed-by img {
+  width: 150px;
+  background: var(--cream);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 0.6rem;
+}
+.managed-by span {
+  display: block;
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.06em;
+}
+.managed-by--light img {
+  background: none;
+  padding: 0;
+  width: 170px;
+}
+.managed-by--light span {
+  color: #7a6e65;
+}
