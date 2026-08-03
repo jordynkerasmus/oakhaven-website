@@ -65,3 +65,11 @@ To roll back to any previous version, go to github.com/jordynkerasmus/oakhaven-w
 | GA4 property | G-YVNB81N86Y |
 | GitHub repo | github.com/jordynkerasmus/oakhaven-website |
 | GA reports | Scheduled daily to jordynkerasmus@gmail.com |
+
+## 3 Aug 2026 — Two new pages live
+- NEW: eat-and-drink.html — full restaurant directory (19 venues by area, hours, Licensed/BYOB badges); Things To Do trimmed to 4 favourites + link
+- NEW: whats-on.html — iCal-style events calendar 2026-2027: confirmed race/festival dates, SA public holidays, KZN + Gauteng school holidays, monthly farmers market, "Events to look out for" TBC section; every event links to its own page
+- Things To Do expanded: Mountain Biking, San Rock Art, Birding & Wildflowers, Paragliding sections with images
+- Weekly scheduled routine "oakhaven-events-refresh" (Mondays 09:00) checks drakensberg.org, Mountain Echo, UHTFC + 12 official event sites and updates the live calendar automatically
+- Sitemap updated with both new pages
+- Staged on `staging` branch first, merged to main after approval (commit 57996e5)
