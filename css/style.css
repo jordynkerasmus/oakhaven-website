@@ -859,9 +859,8 @@ h1, h2, h3, h4 {
   }
   .nav-toggle { display: flex; }
   .stats-row { grid-template-columns: repeat(2, 1fr); }
-  .stat { border-bottom: 1px solid var(--stone); }
-  .stat:nth-child(2) { border-right: none; }
-  .stat:nth-child(3) { border-bottom: none; }
+  .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid rgba(166,148,125,0.35); }
+  .stat:nth-child(3) { border-left: none; }
   .rooms-grid { grid-template-columns: 1fr; }
   .amenities-grid { grid-template-columns: 1fr 1fr; }
   .acts-grid { grid-template-columns: 1fr 1fr; }
