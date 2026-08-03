@@ -64,8 +64,8 @@
   .evt-fest{background:var(--gold)}
   .evt-local{background:var(--green)}
   .evt-hol{background:#E8D9BE;color:var(--charcoal)}
-  .evt-holgp{background:#CDD8BC;color:var(--charcoal)}
-  .evt-pub{background:var(--charcoal)}
+  .evt-holgp{background:var(--charcoal);color:#fff}
+  .evt-pub{background:var(--green)}
   .cal-legend{display:flex;gap:18px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--stone);font-size:11px;color:#7a6e65}
   .leg{display:flex;align-items:center;gap:6px}
   .leg span{width:10px;height:10px;border-radius:2px;display:inline-block}
@@ -129,11 +129,11 @@
         </div>
         <div class="cal-legend">
           <div class="leg"><span style="background:var(--rust)"></span> Races &amp; sport</div>
-          <div class="leg"><span style="background:var(--gold)"></span> Festivals &amp; shows</div>
+          <div class="leg"><span style="background:var(--gold)"></span> Festivals</div>
           <div class="leg"><span style="background:var(--green)"></span> Markets &amp; local</div>
-          <div class="leg"><span style="background:var(--charcoal)"></span> Public holidays</div>
+          <div class="leg"><span style="background:var(--green)"></span> Public holidays</div>
           <div class="leg"><span style="background:#E8D9BE"></span> KZN school holidays</div>
-          <div class="leg"><span style="background:#CDD8BC"></span> Gauteng school holidays</div>
+          <div class="leg"><span style="background:var(--charcoal)"></span> Gauteng school holidays</div>
         </div>
         <div class="cal-grid" id="calGrid"></div>
       </div>
@@ -364,7 +364,7 @@
     }
   }
   function openModal(e){
-    document.getElementById("mCat").textContent=e.cat==="race"?"Races & sport":e.cat==="fest"?"Festivals & shows":e.cat==="holiday"?"School holidays":e.cat==="pubhol"?"Public holiday":"Markets & local";
+    document.getElementById("mCat").textContent=e.cat==="race"?"Races & sport":e.cat==="fest"?"Festivals":e.cat==="holiday"?"School holidays":e.cat==="pubhol"?"Public holiday":"Markets & local";
     document.getElementById("mTitle").textContent=e.title;
     document.getElementById("mWhen").textContent=e.whenTxt||(e.d+(e.end?"–"+e.end:"")+" "+MONTHS[e.m]+" "+e.y+(e.loc?" · "+e.loc:""));
     document.getElementById("mDesc").textContent=e.desc;
