@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.oakhaven.co.za/whats-on.html">
   <meta property="og:title" content="What's On — Events in Underberg &amp; the Southern Drakensberg">
-  <meta property="og:description" content="Plan your stay around the Berg's big weekends — races, festivals, markets and school holidays for 2026 and 2027.">
+  <meta property="og:description" content="Races, festivals, markets, public holidays and school holidays for 2026 and 2027 — plan your Underberg stay, weekends and weekdays alike.">
   <meta property="og:image" content="https://www.oakhaven.co.za/images/PG_logcabin_medres-47.jpeg">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -64,7 +64,9 @@
   .evt-fest{background:var(--gold)}
   .evt-local{background:var(--green)}
   .evt-hol{background:#E8D9BE;color:var(--charcoal)}
-  .cal-legend{display:flex;gap:18px;flex-wrap:wrap;padding:14px 20px;border-top:1px solid var(--stone);font-size:11px;color:#7a6e65}
+  .evt-holgp{background:#CDD8BC;color:var(--charcoal)}
+  .evt-pub{background:var(--charcoal)}
+  .cal-legend{display:flex;gap:18px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--stone);font-size:11px;color:#7a6e65}
   .leg{display:flex;align-items:center;gap:6px}
   .leg span{width:10px;height:10px;border-radius:2px;display:inline-block}
   .modal-bg{display:none;position:fixed;inset:0;background:rgba(42,30,21,0.55);z-index:200;align-items:center;justify-content:center;padding:20px}
@@ -112,8 +114,8 @@
   <section class="section">
     <div class="container">
       <span class="eyebrow reveal">Races · festivals · markets · school holidays</span>
-      <h2 class="section-title reveal">Plan your stay around the Berg's big weekends.</h2>
-      <p class="section-lead reveal">Underberg's calendar is busier than you'd expect — canoe marathons, trail runs, sani2c, Splashy Fen and monthly farmers markets. Click any event for details. The soft gold shading marks South African school holidays (identical for KZN and Gauteng). Book Oakhaven early for these weekends — the village fills up.</p>
+      <h2 class="section-title reveal">There's always something on in the Berg.</h2>
+      <p class="section-lead reveal">Underberg's calendar is busier than you'd expect — canoe marathons, trail runs, sani2c, Splashy Fen, markets and golf days. Click any event for details. The shaded days mark school holidays, ideal for a longer midweek stay when the village is quiet and the trails are yours. Whether it's a big race weekend or a slow week in the mountains, book Oakhaven early.</p>
 
       <div class="cal-wrap reveal">
         <div class="cal-toolbar">
@@ -125,13 +127,15 @@
             <button class="cal-btn year" data-year="2027">2027</button>
           </div>
         </div>
-        <div class="cal-grid" id="calGrid"></div>
         <div class="cal-legend">
           <div class="leg"><span style="background:var(--rust)"></span> Races &amp; sport</div>
           <div class="leg"><span style="background:var(--gold)"></span> Festivals &amp; shows</div>
           <div class="leg"><span style="background:var(--green)"></span> Markets &amp; local</div>
-          <div class="leg"><span style="background:#E8D9BE"></span> School holidays (KZN &amp; Gauteng)</div>
+          <div class="leg"><span style="background:var(--charcoal)"></span> Public holidays</div>
+          <div class="leg"><span style="background:#E8D9BE"></span> KZN school holidays</div>
+          <div class="leg"><span style="background:#CDD8BC"></span> Gauteng school holidays</div>
         </div>
+        <div class="cal-grid" id="calGrid"></div>
       </div>
     </div>
   </section>
@@ -180,7 +184,7 @@
           <div class="rest-phone"><a href="https://www.sanispoors.co.za/major-events/" target="_blank" rel="noopener">sanispoors.co.za</a></div>
         </div>
       </div>
-      <p class="reveal" style="font-size:12px;color:#a49685;margin-top:2rem">Event dates from official event websites and drakensberg.org — always confirm with the organiser before travelling. School holiday dates from the Department of Basic Education gazetted 2026 and 2027 calendars.</p>
+      <p class="reveal" style="font-size:12px;color:#a49685;margin-top:2rem">Event dates from official event websites and drakensberg.org — always confirm with the organiser before travelling. School holiday and public holiday dates follow the Department of Basic Education gazetted 2026 and 2027 calendars — private school terms differ, so check your own school calendar too.</p>
     </div>
   </section>
 
@@ -250,7 +254,15 @@
   const EVENTS = [
     // 2026
     {y:2026,m:6,d:25,cat:"race",title:"Underberg Gran Fondo",loc:"The Olde Duck, Drak Gardens Road",desc:"Gravel cycling race with 45 km, 90 km and 140 km routes through the Underberg farmlands. 8 AM start.",link:"https://underberggranfondo.co.za"},
-    {y:2026,m:8,d:5,cat:"local",title:"Pevensey Fete",loc:"Pevensey, Underberg district",desc:"A proper country fete — stalls, teas and local produce.",link:"https://drakensberg.org/events/"},
+    {y:2026,m:7,d:1,cat:"race",title:"Bred4theWild Golf Day",loc:"Underberg Country Club",desc:"Charity golf day preserving the flagship species of the Drakensberg.",link:"https://drakensberg.org/events/"},
+    {y:2026,m:7,d:1,cat:"race",title:"Winter Hike to Lesotho",loc:"Sani Pass border control",desc:"Winter adventure hike up Sani Pass into Lesotho with the Mqatsheni Hiking & Environmental Solutions Club.",link:"https://drakensberg.org/events/"},
+    {y:2026,m:7,d:7,end:8,cat:"local",title:"Women's Day Pop-Up",loc:"The Local Collection, Underberg",desc:"Pop-up shopping mornings celebrating Women's Day, 9 AM to 1 PM.",link:"https://drakensberg.org/events/"},
+    {y:2026,m:7,d:8,cat:"race",title:"CHOC Walk Up Sani Pass",loc:"Sani Pass border control",desc:"Charity walk up Sani Pass in aid of CHOC — walk with purpose against the Drakensberg backdrop.",link:"https://drakensberg.org/events/"},
+    {y:2026,m:7,d:9,cat:"local",title:"Bulwer Women's Day Adventure",loc:"Mountain Park Hotel, Bulwer",desc:"A Women's Day adventure with the Mahwaqa Hiking Club.",link:"https://drakensberg.org/events/"},
+    {y:2026,m:7,d:22,cat:"race",title:"M.O.T.H. Golf Day",loc:"Underberg Country Club",desc:"The 17th annual M.O.T.H. charity golf day fundraiser, hosted by Boot & Saddle Shellhole.",link:"https://drakensberg.org/events/"},
+    {y:2026,m:8,d:4,cat:"race",title:"Putt for a Purpose",loc:"Underberg Country Club",desc:"Charity golf day at the country club.",link:"https://drakensberg.org/events/"},
+    {y:2026,m:8,d:5,cat:"local",title:"Pevensey Fete",loc:"Underberg Primary School",desc:"A proper country fete — stalls, teas and local produce.",link:"https://drakensberg.org/events/"},
+    {y:2026,m:8,d:5,cat:"fest",title:"Family Fun Day",loc:"Underberg",desc:"A family fun day in the village — music, games and food.",link:"https://drakensberg.org/events/"},
     {y:2026,m:8,d:18,end:20,cat:"race",title:"Sani Seeker MTB",loc:"Sani Spoors trails, Underberg",desc:"Mountain bike stage event on the Sani Spoors trail network.",link:"https://www.sanispoors.co.za/major-events/"},
     {y:2026,m:8,d:19,cat:"race",title:"Rhino Peak Challenge",loc:"Garden Castle",desc:"Fundraising summit run and hike to the top of Rhino Peak for rhino conservation.",link:"https://drakensberg.org/events/"},
     {y:2026,m:9,d:2,end:4,cat:"local",title:"SA Junior Boys Polo Fixture",loc:"Underberg",desc:"International junior polo fixture hosted in Underberg.",link:"https://drakensberg.org/events/"},
@@ -285,6 +297,24 @@
     {y:2027,from:[8,23],to:[9,4],label:"Spring school holidays"},
     {y:2027,from:[11,9],to:[11,31],label:"Summer school holidays"},
   ];
+  // SA public holidays
+  const PUBHOLS = [
+    {y:2026,m:0,d:1,t:"New Year's Day"},{y:2026,m:2,d:21,t:"Human Rights Day"},
+    {y:2026,m:3,d:3,t:"Good Friday"},{y:2026,m:3,d:6,t:"Family Day"},
+    {y:2026,m:3,d:27,t:"Freedom Day"},{y:2026,m:4,d:1,t:"Workers' Day"},
+    {y:2026,m:5,d:16,t:"Youth Day"},{y:2026,m:7,d:9,t:"National Women's Day"},
+    {y:2026,m:7,d:10,t:"Public holiday (Women's Day observed)"},
+    {y:2026,m:8,d:24,t:"Heritage Day"},{y:2026,m:11,d:16,t:"Day of Reconciliation"},
+    {y:2026,m:11,d:25,t:"Christmas Day"},{y:2026,m:11,d:26,t:"Day of Goodwill"},
+    {y:2027,m:0,d:1,t:"New Year's Day"},{y:2027,m:2,d:21,t:"Human Rights Day"},
+    {y:2027,m:2,d:22,t:"Public holiday (Human Rights Day observed)"},
+    {y:2027,m:2,d:26,t:"Good Friday"},{y:2027,m:2,d:29,t:"Family Day"},
+    {y:2027,m:3,d:27,t:"Freedom Day"},{y:2027,m:4,d:1,t:"Workers' Day"},
+    {y:2027,m:5,d:16,t:"Youth Day"},{y:2027,m:7,d:9,t:"National Women's Day"},
+    {y:2027,m:8,d:24,t:"Heritage Day"},{y:2027,m:11,d:16,t:"Day of Reconciliation"},
+    {y:2027,m:11,d:25,t:"Christmas Day"},{y:2027,m:11,d:26,t:"Day of Goodwill"},
+    {y:2027,m:11,d:27,t:"Public holiday (Day of Goodwill observed)"},
+  ];
   const MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
   const NOW=new Date();
   let curY=Math.min(Math.max(NOW.getFullYear(),2026),2027), curM=(NOW.getFullYear()>=2026&&NOW.getFullYear()<=2027)?NOW.getMonth():0;
@@ -311,9 +341,18 @@
       const dn=document.createElement("div");dn.className="cal-daynum";dn.textContent=dnum;cell.appendChild(dn);
       if(inMonth){
         if(hol&&(dnum===1||!holidayAt(curY,curM,dnum-1))){
-          const b=document.createElement("button");b.className="evt evt-hol";b.textContent=hol.label;
-          b.onclick=()=>openModal({cat:"holiday",title:hol.label,whenTxt:"KZN & Gauteng — identical national calendar",desc:"Official Department of Basic Education school holiday period (gazetted). Since 2024 all South African provinces follow a single school calendar.",link:""});
-          cell.appendChild(b);
+          const bk=document.createElement("button");bk.className="evt evt-hol";bk.textContent="KZN "+hol.label.toLowerCase();
+          bk.onclick=()=>openModal({cat:"holiday",title:"KZN "+hol.label.toLowerCase(),whenTxt:"KwaZulu-Natal public schools",desc:"Department of Basic Education gazetted school holiday period for KwaZulu-Natal public schools.",link:""});
+          cell.appendChild(bk);
+          const bg=document.createElement("button");bg.className="evt evt-holgp";bg.textContent="Gauteng "+hol.label.toLowerCase();
+          bg.onclick=()=>openModal({cat:"holiday",title:"Gauteng "+hol.label.toLowerCase(),whenTxt:"Gauteng public schools",desc:"Department of Basic Education gazetted school holiday period for Gauteng public schools.",link:""});
+          cell.appendChild(bg);
+        }
+        const ph=PUBHOLS.find(p=>p.y===curY&&p.m===curM&&p.d===dnum);
+        if(ph){
+          const bp=document.createElement("button");bp.className="evt evt-pub";bp.textContent=ph.t;
+          bp.onclick=()=>openModal({cat:"pubhol",title:ph.t,whenTxt:dnum+" "+MONTHS[curM]+" "+curY,desc:"South African public holiday.",link:""});
+          cell.appendChild(bp);
         }
         EVENTS.filter(e=>e.y===curY&&e.m===curM&&dnum>=e.d&&dnum<=(e.end||e.d)).forEach(e=>{
           const b=document.createElement("button");
@@ -325,7 +364,7 @@
     }
   }
   function openModal(e){
-    document.getElementById("mCat").textContent=e.cat==="race"?"Races & sport":e.cat==="fest"?"Festivals & shows":e.cat==="holiday"?"School holidays":"Markets & local";
+    document.getElementById("mCat").textContent=e.cat==="race"?"Races & sport":e.cat==="fest"?"Festivals & shows":e.cat==="holiday"?"School holidays":e.cat==="pubhol"?"Public holiday":"Markets & local";
     document.getElementById("mTitle").textContent=e.title;
     document.getElementById("mWhen").textContent=e.whenTxt||(e.d+(e.end?"–"+e.end:"")+" "+MONTHS[e.m]+" "+e.y+(e.loc?" · "+e.loc:""));
     document.getElementById("mDesc").textContent=e.desc;
