@@ -1001,3 +1001,17 @@ h1, h2, h3, h4 {
 .managed-by--light span {
   color: #7a6e65;
 }
+
+/* ── EAT & DRINK BADGES ── */
+.badge {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 100px;
+  vertical-align: middle;
+}
+.badge-lic { background: rgba(134,55,37,0.12); color: var(--rust); }
+.badge-byob { background: rgba(166,148,125,0.18); color: var(--green-dark); }
+.rest-name .badge { margin-left: 4px; }
