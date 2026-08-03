@@ -6,32 +6,32 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.oakhaven.co.za/property.html</loc>
+    <loc>https://www.oakhaven.co.za/property</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.oakhaven.co.za/gallery.html</loc>
+    <loc>https://www.oakhaven.co.za/gallery</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.oakhaven.co.za/things-to-do.html</loc>
+    <loc>https://www.oakhaven.co.za/things-to-do</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.oakhaven.co.za/find-us.html</loc>
+    <loc>https://www.oakhaven.co.za/find-us</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.oakhaven.co.za/eat-and-drink.html</loc>
+    <loc>https://www.oakhaven.co.za/eat-and-drink</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.oakhaven.co.za/whats-on.html</loc>
+    <loc>https://www.oakhaven.co.za/whats-on</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
