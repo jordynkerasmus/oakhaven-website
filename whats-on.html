@@ -348,17 +348,25 @@
           bg.onclick=()=>openModal({cat:"holiday",title:"Gauteng "+hol.label.toLowerCase(),whenTxt:"Gauteng public schools",desc:"Department of Basic Education gazetted school holiday period for Gauteng public schools.",link:""});
           cell.appendChild(bg);
         }
+        const dayEvents=EVENTS.filter(e=>e.y===curY&&e.m===curM&&dnum>=e.d&&dnum<=(e.end||e.d));
+        // multi-day events first, in a stable order, so they line up across the row
+        dayEvents.sort((a,b)=>{
+          const am=a.end?1:0, bm=b.end?1:0;
+          if(am!==bm) return bm-am;
+          if(a.d!==b.d) return a.d-b.d;
+          return a.title.localeCompare(b.title);
+        });
+        dayEvents.forEach(e=>{
+          const b=document.createElement("button");
+          b.className="evt evt-"+(e.cat==="race"?"race":e.cat==="fest"?"fest":"local");
+          b.textContent=e.title;b.onclick=()=>openModal(e);cell.appendChild(b);
+        });
         const ph=PUBHOLS.find(p=>p.y===curY&&p.m===curM&&p.d===dnum);
         if(ph){
           const bp=document.createElement("button");bp.className="evt evt-pub";bp.textContent=ph.t;
           bp.onclick=()=>openModal({cat:"pubhol",title:ph.t,whenTxt:dnum+" "+MONTHS[curM]+" "+curY,desc:"South African public holiday.",link:""});
           cell.appendChild(bp);
         }
-        EVENTS.filter(e=>e.y===curY&&e.m===curM&&dnum>=e.d&&dnum<=(e.end||e.d)).forEach(e=>{
-          const b=document.createElement("button");
-          b.className="evt evt-"+(e.cat==="race"?"race":e.cat==="fest"?"fest":"local");
-          b.textContent=e.title;b.onclick=()=>openModal(e);cell.appendChild(b);
-        });
       }
       grid.appendChild(cell);
     }
