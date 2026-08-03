@@ -51,15 +51,15 @@
   .cal-btn{background:var(--mist);border:1px solid var(--stone);border-radius:4px;padding:7px 14px;cursor:pointer;font-family:'Inter',sans-serif;font-size:13px;color:var(--charcoal);transition:background .2s}
   .cal-btn:hover{background:var(--stone)}
   .cal-btn.year.active{background:var(--charcoal);color:#fff;border-color:var(--charcoal)}
-  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr)}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
   .cal-dow{padding:9px 4px;text-align:center;font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#7a6e65;border-bottom:1px solid var(--stone);background:var(--mist)}
-  .cal-cell{min-height:96px;border-bottom:1px solid #f0e8dd;border-right:1px solid #f0e8dd;padding:6px;font-size:12px;background:#fff}
+  .cal-cell{min-height:96px;min-width:0;max-width:100%;overflow:hidden;border-bottom:1px solid #f0e8dd;border-right:1px solid #f0e8dd;padding:6px;font-size:12px;background:#fff}
   .cal-cell:nth-child(7n){border-right:none}
   .cal-cell.other{background:#faf6f0;color:#c5b8a8}
   .cal-cell.holiday{background:#FBF3E4}
   .cal-daynum{font-size:11px;color:#7a6e65;margin-bottom:3px}
   .cal-cell.today .cal-daynum{background:var(--gold);color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center}
-  .evt{display:block;width:100%;text-align:left;border:none;font-family:'Inter',sans-serif;font-size:10.5px;line-height:1.3;padding:3px 6px;border-radius:3px;margin-bottom:3px;cursor:pointer;color:#fff;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+  .evt{display:block;width:100%;max-width:100%;min-width:0;box-sizing:border-box;text-align:left;border:none;font-family:'Inter',sans-serif;font-size:10.5px;line-height:1.3;padding:3px 6px;border-radius:3px;margin-bottom:3px;cursor:pointer;color:#fff;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
   .evt-race{background:var(--rust)}
   .evt-fest{background:var(--gold)}
   .evt-local{background:var(--green)}
@@ -277,6 +277,7 @@
     {y:2026,m:8,d:5,cat:"fest",title:"Family Fun Day",loc:"Underberg",desc:"A family fun day in the village — music, games and food.",link:"https://drakensberg.org/events/"},
     {y:2026,m:8,d:18,end:20,cat:"race",title:"Sani Seeker MTB",loc:"Sani Spoors trails, Underberg",desc:"Mountain bike stage event on the Sani Spoors trail network.",link:"https://www.sanispoors.co.za/major-events/"},
     {y:2026,m:8,d:19,cat:"race",title:"Rhino Peak Challenge",loc:"Garden Castle",desc:"Fundraising summit run and hike to the top of Rhino Peak for rhino conservation.",link:"https://drakensberg.org/events/"},
+    {y:2026,m:8,d:24,end:26,cat:"race",title:"UHTFC Stillwater Festival",loc:"Underberg stillwaters (venues TBA)",desc:"Three-day stillwater fly fishing festival — 15 teams of two anglers on premium Underberg dams, with meals and entertainment. R1,800 per angler; non-fishing family welcome. Hosted by the Underberg-Himeville Trout Fishing Club.",link:"https://uhtfc.org.za/festivals/stillwater-festival"},
     {y:2026,m:9,d:2,end:4,cat:"local",title:"SA Junior Boys Polo Fixture",loc:"Underberg",desc:"International junior polo fixture hosted in Underberg.",link:"https://drakensberg.org/events/"},
     {y:2026,m:9,d:3,cat:"race",title:"Sani Pass TT",loc:"Sani Pass",desc:"Time trial up the legendary Sani Pass.",link:"https://drakensberg.org/events/"},
     {y:2026,m:9,d:9,end:11,cat:"race",title:"Glencairn Trail Run",loc:"Glencairn Farm, Himeville",desc:"Fully catered weekend trail-running festival — the two-day Ram Run (18 + 17 km) and Lamb Run (8 + 10.2 km).",link:"https://glencairntrailrun.co.za"},
