@@ -57,8 +57,9 @@
   .cal-cell:nth-child(7n){border-right:none}
   .cal-cell.other{background:#faf6f0;color:#c5b8a8}
   .cal-cell.holiday{background:#FBF3E4}
-  .cal-daynum{font-size:11px;color:#7a6e65;margin-bottom:3px}
-  .cal-cell.today .cal-daynum{background:var(--gold);color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center}
+  .cal-daynum{font-size:11px;color:#7a6e65;margin-bottom:3px;display:flex;justify-content:space-between;align-items:center}
+  .cal-wx{font-size:9.5px;color:#a49685;white-space:nowrap;font-style:normal}
+  .cal-cell.today .cal-daynum span:first-child{background:var(--gold);color:#fff;border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center}
   .evt{display:block;width:100%;max-width:100%;min-width:0;box-sizing:border-box;text-align:left;border:none;font-family:'Inter',sans-serif;font-size:10.5px;line-height:1.3;padding:3px 6px;border-radius:3px;margin-bottom:3px;cursor:pointer;color:#fff;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
   .evt-race{background:var(--rust)}
   .evt-fest{background:var(--gold)}
@@ -127,7 +128,7 @@
             <button class="cal-btn year" data-year="2027">2027</button>
           </div>
         </div>
-        <div style="padding:10px 20px 0;font-size:12px;color:#7a6e65;font-style:italic">Click on any event for the details — dates, venue and a link to the event's own page.</div>
+        <div style="padding:10px 20px 0;font-size:12px;color:#7a6e65;font-style:italic">Click on any event for the details — dates, venue and a link to the event's own page. Days in the next two weeks show the Underberg weather forecast.</div>
         <div class="cal-legend">
           <div class="leg"><span style="background:var(--rust)"></span> Races &amp; sport</div>
           <div class="leg"><span style="background:var(--gold)"></span> Festivals</div>
@@ -329,6 +330,14 @@
     {y:2027,m:11,d:25,t:"Christmas Day"},{y:2027,m:11,d:26,t:"Day of Goodwill"},
     {y:2027,m:11,d:27,t:"Public holiday (Day of Goodwill observed)"},
   ];
+  // ── Underberg weather forecast (Open-Meteo, ~16 days ahead) ──
+  const WEATHER = {};
+  const WMO = c => c===0?"\u2600\ufe0f":c<=2?"\ud83c\udf24\ufe0f":c===3?"\u2601\ufe0f":c<=48?"\ud83c\udf2b\ufe0f":c<=57?"\ud83c\udf26\ufe0f":c<=67?"\ud83c\udf27\ufe0f":c<=77?"\u2744\ufe0f":c<=82?"\ud83c\udf27\ufe0f":c<=86?"\u2744\ufe0f":"\u26c8\ufe0f";
+  fetch("https://api.open-meteo.com/v1/forecast?latitude=-29.789&longitude=29.487&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Africa%2FJohannesburg&forecast_days=16")
+    .then(r=>r.json()).then(d=>{
+      d.daily.time.forEach((t,i)=>{ WEATHER[t]={c:d.daily.weather_code[i],hi:Math.round(d.daily.temperature_2m_max[i]),lo:Math.round(d.daily.temperature_2m_min[i])}; });
+      render();
+    }).catch(()=>{});
   const MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
   const NOW=new Date();
   let curY=Math.min(Math.max(NOW.getFullYear(),2026),2027), curM=(NOW.getFullYear()>=2026&&NOW.getFullYear()<=2027)?NOW.getMonth():0;
@@ -352,7 +361,14 @@
       const hol=inMonth?holidayAt(curY,curM,dnum):null;
       if(hol)cell.classList.add("holiday");
       if(inMonth&&curY===NOW.getFullYear()&&curM===NOW.getMonth()&&dnum===NOW.getDate())cell.classList.add("today");
-      const dn=document.createElement("div");dn.className="cal-daynum";dn.textContent=dnum;cell.appendChild(dn);
+      const dn=document.createElement("div");dn.className="cal-daynum";
+      const dspan=document.createElement("span");dspan.textContent=dnum;dn.appendChild(dspan);
+      if(inMonth){
+        const key=curY+"-"+String(curM+1).padStart(2,"0")+"-"+String(dnum).padStart(2,"0");
+        const wx=WEATHER[key];
+        if(wx){const w=document.createElement("span");w.className="cal-wx";w.title="Underberg forecast";w.textContent=WMO(wx.c)+" "+wx.hi+"\u00b0/"+wx.lo+"\u00b0";dn.appendChild(w);}
+      }
+      cell.appendChild(dn);
       if(inMonth){
         if(hol&&(dnum===1||!holidayAt(curY,curM,dnum-1))){
           const bk=document.createElement("button");bk.className="evt evt-hol";bk.textContent="KZN "+hol.label.toLowerCase();
