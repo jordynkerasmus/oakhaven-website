@@ -53,7 +53,6 @@
   .prize-banner .pz-eyebrow{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
   .prize-banner h3{font-family:'Cormorant Garant',serif;font-size:30px;font-weight:300;line-height:1.25;margin-bottom:0.5rem}
   .prize-banner p{font-size:13.5px;color:rgba(255,255,255,0.65);line-height:1.75}
-  .preview-note{background:#FFF3CD;border:1px solid #E8D9A0;color:#6b5d22;font-size:12px;padding:10px 14px;border-radius:4px;margin-bottom:1.2rem}
   </style>
 </head>
 <body>
@@ -112,30 +111,7 @@
 
         <div class="reveal">
           <div class="win-form-card">
-            <div class="preview-note">PREVIEW — the form isn't wired up yet. Entries will connect once we hook up the form backend.</div>
-            <form id="winForm">
-              <div class="form-group">
-                <label for="wName">Full name *</label>
-                <input type="text" id="wName" name="name" required autocomplete="name">
-              </div>
-              <div class="form-group">
-                <label for="wPhone">WhatsApp number *</label>
-                <input type="tel" id="wPhone" name="whatsapp" required autocomplete="tel" value="+27 " placeholder="+27 82 123 4567">
-                <span style="font-size:11px;color:#a49685">Include the country code — +27 for South Africa</span>
-              </div>
-              <div class="form-group">
-                <label for="wEmail">Email address *</label>
-                <input type="email" id="wEmail" name="email" required autocomplete="email">
-              </div>
-              <label class="optin"><input type="checkbox" name="optin_whatsapp" value="yes"> Keep me in the loop on WhatsApp — specials, events and what's on in the Berg (via the Oakhaven WhatsApp channel)</label>
-              <label class="optin"><input type="checkbox" name="optin_email" value="yes"> Email me Oakhaven news and specials (unsubscribe any time)</label>
-              <label class="optin" style="color:var(--charcoal)"><input type="checkbox" name="consent" required> I'm 18 or older and accept the giveaway rules *</label>
-              <button type="submit" class="btn btn-gold" style="width:100%;margin-top:0.8rem">Enter the giveaway</button>
-            </form>
-            <div id="winThanks" style="display:none;text-align:center;padding:2rem 0">
-              <h3 style="font-family:'Cormorant Garant',serif;font-weight:400;font-size:26px;margin-bottom:0.5rem">You're in. Good luck!</h3>
-              <p style="font-size:14px;color:#7a6e65;line-height:1.7">Keep an eye on your WhatsApp and email — that's where we'll reach the winner. In the meantime, have a look at <a href="/whats-on" style="color:var(--gold-dark)">what's on in the Berg</a>.</p>
-            </div>
+            <iframe data-tally-src="https://tally.so/embed/4a44yA?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="560" frameborder="0" marginheight="0" marginwidth="0" title="Win a Stay at Oakhaven"></iframe>
           </div>
         </div>
       </div>
@@ -160,22 +136,12 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="https://tally.so/widgets/embed.js" async></script>
   <script>
-  // normalise WhatsApp number to international format (+27...) for the database
-  const wPhone = document.getElementById("wPhone");
-  wPhone.addEventListener("blur", function(){
-    let v = this.value.replace(/[^\d+]/g, "");
-    if (/^0\d{9}$/.test(v)) v = "+27" + v.slice(1);          // 0821234567 -> +27821234567
-    else if (/^27\d{9}$/.test(v)) v = "+" + v;               // 27821234567 -> +27821234567
-    else if (/^\+27\d{9}$/.test(v)) { /* already good */ }
-    if (v.startsWith("+27") && v.length === 12) this.value = v;
-  });
-  document.getElementById("winForm").addEventListener("submit", function(e){
-    e.preventDefault();
-    // PREVIEW MODE: swap this for the real form backend before launch
-    this.style.display = "none";
-    document.getElementById("winThanks").style.display = "block";
-    if (typeof fbq === "function") fbq("track", "Lead");
+  window.addEventListener("message", function(e){
+    if (typeof e.data === "string" && e.data.indexOf("Tally.FormSubmitted") !== -1 && typeof fbq === "function") {
+      fbq("track", "Lead");
+    }
   });
   </script>
 </body>
