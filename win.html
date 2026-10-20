@@ -119,7 +119,8 @@
               </div>
               <div class="form-group">
                 <label for="wPhone">WhatsApp number *</label>
-                <input type="tel" id="wPhone" name="whatsapp" required autocomplete="tel" placeholder="e.g. 082 123 4567">
+                <input type="tel" id="wPhone" name="whatsapp" required autocomplete="tel" value="+27 " placeholder="+27 82 123 4567">
+                <span style="font-size:11px;color:#a49685">Include the country code — +27 for South Africa</span>
               </div>
               <div class="form-group">
                 <label for="wEmail">Email address *</label>
@@ -159,6 +160,15 @@
 
   <script src="js/main.js"></script>
   <script>
+  // normalise WhatsApp number to international format (+27...) for the database
+  const wPhone = document.getElementById("wPhone");
+  wPhone.addEventListener("blur", function(){
+    let v = this.value.replace(/[^\d+]/g, "");
+    if (/^0\d{9}$/.test(v)) v = "+27" + v.slice(1);          // 0821234567 -> +27821234567
+    else if (/^27\d{9}$/.test(v)) v = "+" + v;               // 27821234567 -> +27821234567
+    else if (/^\+27\d{9}$/.test(v)) { /* already good */ }
+    if (v.startsWith("+27") && v.length === 12) this.value = v;
+  });
   document.getElementById("winForm").addEventListener("submit", function(e){
     e.preventDefault();
     // PREVIEW MODE: swap this for the real form backend before launch
